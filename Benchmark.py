@@ -1,22 +1,19 @@
 from thompson_sampling import thompson_sampling
 from epsilon_greedy import epsilon_greedy
 from upper_confidence_bound import UCB
-from Arm import Arm
+from Arm import Arm, Arms
 import numpy as np
 
 def simulate_eg(epsilon):
-    arms = [Arm(0.3) for i in range(4)]
-    arms.append(Arm(0.5))
+    arms = Arms()
     return epsilon_greedy(arms=arms, T=10**3, epsilon=epsilon)
 
 def simulate_ucb():
-    arms = [Arm(0.3) for i in range(4)]
-    arms.append(Arm(0.5))
+    arms = Arms()
     return UCB(arms=arms, T=10**3)
 
 def simulate_ts():
-    arms = [Arm(0.3) for i in range(4)]
-    arms.append(Arm(0.5))
+    arms = Arms()
     return thompson_sampling(arms=arms, T=10**3)
 
 def __out_benchmark(array):
@@ -24,7 +21,7 @@ def __out_benchmark(array):
 
 
 if __name__ == "__main__":
-    loop_cnt = 100
+    loop_cnt = 1000
     eg_3_reward_hist = []
     eg_5_reward_hist = []
     eg_7_reward_hist = []

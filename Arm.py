@@ -15,3 +15,9 @@ class Arm:
         else:
             self.fail += 1
         return result
+
+# 腕リストクラス
+class Arms:
+    def __init__(self):
+        self.arms = [Arm(0.3) for i in range(4)]
+        self.arms.append(Arm(0.5))
